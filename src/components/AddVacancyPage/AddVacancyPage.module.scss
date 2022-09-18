@@ -1,0 +1,74 @@
+.container {
+    background-color: white;
+}
+
+.vacancyConteiner{
+    border: 1px solid rgb(209, 207, 207);
+    background-color: rgb(245, 245, 245);
+    margin: 0 25% 30px 25%;
+    padding: 30px 40px 30px 40px;
+    font-family: 'Inter', sans-serif;
+    h2 {
+        margin-bottom: 25px;
+    }
+    .vacancyForm {
+        input, textarea, label {
+            font-weight: bold ;
+            display: block;
+            opacity: 0.8;
+            border-radius: 5px;
+            width: 100%;
+            padding-left: 10px;
+            margin-bottom: 5px;
+            span {
+                color: red;
+            }
+        }
+        input {
+            border: 1px solid rgb(209, 207, 207);
+            height: 40px;
+        }
+        textarea {
+            border: 1px solid rgb(209, 207, 207);
+            height: 120px;
+            resize: none;
+            padding-top: 10px;
+        }
+        * {
+            div {
+                color: red;
+                margin-left: 10px;
+                //display: none;
+            }
+            &:last-child {
+                margin-bottom: 20px;
+            }
+        }
+        .file {
+            border: none;
+            margin-bottom: 20px;
+        }
+    }    
+}
+
+
+.Link {
+    display: block;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 5px 20px 5px 20px;
+    background-color: #1fc1ec;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    &:hover {
+            cursor: pointer;
+            background-color: #1b9bbe;
+    }
+    &:active {
+            transform: scale(1.1);
+    }
+}

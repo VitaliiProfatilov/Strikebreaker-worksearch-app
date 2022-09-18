@@ -1,0 +1,18 @@
+.container {
+    background-color: white;
+    .jobCardsContainer {
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        max-width: 80%;
+        background-color: rgb(201, 255, 255);
+        border: 1px solid rgb(209, 207, 207);
+    .vacanciesSpan, .resumeSpan {
+            font-size: 26px;
+            color: black;
+            font-weight: bold;
+            margin-left: 15%;
+    }
+    }
+}

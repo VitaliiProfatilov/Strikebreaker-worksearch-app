@@ -1,0 +1,27 @@
+* {
+    text-decoration: none;
+}
+
+.button {
+    display: block;
+    text-decoration: none;
+    background-color: #1fc1ec;
+    color: white;
+    border-radius: 5px;
+    margin-left: 75%;
+    display: flex;
+    padding: 2px 4px 2px 4px;
+    border-color: rgb(35, 161, 161);
+    font-weight: bold;
+    &:hover {
+        cursor: pointer;
+        background-color: #1b9bbe;
+    }
+    &:active {
+        transform: scale(1.1);
+    }
+    .star {
+        margin-top: 1px;
+        padding-right: 3px; 
+    }
+}
