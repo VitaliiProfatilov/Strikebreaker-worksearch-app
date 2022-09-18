@@ -57,18 +57,9 @@
             max-height: 64px;
         }
     }
-    .saveToFavorit {
-        margin-left: 750px;
+    .jobCardFooter {
         display: flex;
-        .star {
-            margin-top: 2px;
-            padding-right: 3px;
-        }
-        .text {
-            &:hover {
-                color: rgb(87, 87, 231);
-                text-decoration: underline;
-            }
-        }
+        margin-left: 65%;
+        justify-content: space-between;
     }
 }

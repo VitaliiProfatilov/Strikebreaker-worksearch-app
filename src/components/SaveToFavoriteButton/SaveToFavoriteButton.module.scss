@@ -8,11 +8,12 @@
     background-color: #1fc1ec;
     color: white;
     border-radius: 5px;
-    margin-left: 75%;
+    margin-right: 12px;
     display: flex;
     padding: 2px 4px 2px 4px;
     border-color: rgb(35, 161, 161);
     font-weight: bold;
+    min-width: 130px;
     &:hover {
         cursor: pointer;
         background-color: #1b9bbe;

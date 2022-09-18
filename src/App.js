@@ -46,7 +46,8 @@ export class App extends React.Component {
   this.onPush = this.onPush.bind(this);
   this.addFavorite = this.addFavorite.bind(this);
   this.deleteFavorite = this.deleteFavorite.bind(this);
-  //this.hideCard = this.hideCard.bind(this);
+  this.hideCard = this.hideCard.bind(this);
+  this.showCard = this.showCard.bind(this);
   }
   render() {
     return (
@@ -84,21 +85,22 @@ export class App extends React.Component {
   }
   deleteFavorite(id) {
     const isFavorite = false;
-    let jobCardsisFavorite = this.state.jobCards;
-    jobCardsisFavorite[id-1].isFavorite = isFavorite;
+    let jobCardsIsFavorite = this.state.jobCards;
+    jobCardsIsFavorite[id-1].isFavorite = isFavorite;
     this.setState({favorite: this.state.favorite.filter((el) => el.id !== id)})
   }
   hideCard(id) {
     const isHidden = true;
     let jobCardsIsHidden = this.state.jobCards;
     jobCardsIsHidden[id-1].isHidden = isHidden;
-    this.setState({hidden: [this.state.jobCards]})
+    //this.setState({hidden: [this.state.jobCards]})
     console.log(this.state.jobCards)
   }
   showCard(id) {
     const isHidden = false;
-    //let jobCardsIsHidden = this.state.jobCards;
-    //jobCardsIsHidden[id-1].isHidden = isHidden;
+    let jobCardsIsHidden = this.state.jobCards;
+    jobCardsIsHidden[id-1].isHidden = isHidden;
+    console.log(this.state.jobCards)
   }
 }
 
