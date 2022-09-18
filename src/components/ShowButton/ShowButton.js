@@ -7,7 +7,7 @@ export function ShowButton() {
             <div className={styles.star}>
                 <TbStarOff />
             </div>
-            Delete from favorite
+            показать
         </button>
     )
 }

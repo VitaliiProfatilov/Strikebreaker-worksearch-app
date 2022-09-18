@@ -40,22 +40,23 @@ export class App extends React.Component {
       ],
       jobCard: [],
       favorite: [],
+      hidden: [],
     }
   this.addJobCard = this.addJobCard.bind(this);
   this.onPush = this.onPush.bind(this);
   this.addFavorite = this.addFavorite.bind(this);
   this.deleteFavorite = this.deleteFavorite.bind(this);
-  this.hide = this.hide.bind(this);
+  //this.hideCard = this.hideCard.bind(this);
   }
   render() {
     return (
       <>
         <Routes>
-          <Route path='/' element={<EmployerPage hide={this.hide} jobCards={this.state.jobCards} jobCardId={this.onPush} addFavorite={this.addFavorite} deleteFavorite={this.deleteFavorite} />} />
+          <Route path='/' element={<EmployerPage showCard={this.showCard} hideCard={this.hideCard} jobCards={this.state.jobCards} jobCardId={this.onPush} addFavorite={this.addFavorite} deleteFavorite={this.deleteFavorite} />} />
           <Route path='applicant' element={<ApplicantPage />} />
           <Route path='AddVacancy' element={<AddVacancy onAdd={this.addJobCard}/>} />
           <Route path='VacancyPage' element={<VacancyPage jobCard={this.state.jobCard}/>} />
-          <Route path='Favorite' element={<FavoritePage hide={this.hide} jobCards={this.state.favorite} jobCardId={this.onPush} deleteFavorite={this.deleteFavorite} addFavorite={this.addFavorite}/>}/>
+          <Route path='Favorite' element={<FavoritePage showCard={this.showCard} hideCard={this.hideCard} jobCards={this.state.favorite} jobCardId={this.onPush} deleteFavorite={this.deleteFavorite} addFavorite={this.addFavorite}/>}/>
         </Routes>
       </>
     )
@@ -87,12 +88,14 @@ export class App extends React.Component {
     jobCardsisFavorite[id-1].isFavorite = isFavorite;
     this.setState({favorite: this.state.favorite.filter((el) => el.id !== id)})
   }
-  hide(id) {
+  hideCard(id) {
     const isHidden = true;
     let jobCardsIsHidden = this.state.jobCards;
     jobCardsIsHidden[id-1].isHidden = isHidden;
+    //this.setState({hidden: [this.state.jobCards]})
+    //console.log(this.state.hidden)
   }
-  show(id) {
+  showCard(id) {
     const isHidden = false;
     let jobCardsIsHidden = this.state.jobCards;
     jobCardsIsHidden[id-1].isHidden = isHidden;

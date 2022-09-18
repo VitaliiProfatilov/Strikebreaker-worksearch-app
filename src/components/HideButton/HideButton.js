@@ -7,7 +7,7 @@ export function HideButton() {
             <div className={styles.star}>
                 <TbStar />
             </div>
-            Save to favorite
+            спрятать
         </button>
     )
 }

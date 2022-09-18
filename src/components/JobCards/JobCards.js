@@ -22,13 +22,16 @@ export class JobCards extends React.Component {
                             <li> <span> {jobCard.сompanyName} </span> {jobCard.location} </li>
                             <li className={styles.description}> {jobCard.description} </li>
                         </ul>
-                        {jobCard.isFavorite ? <div onClick={ () => this.props.deleteFavorite(jobCard.id)}>
-                            <DeleteFromFavoriteButton/>
-                        </div> : <div onClick={() => this.props.addFavorite(jobCard.id)}>
-                            <SaveToFavoriteButton/>
-                        </div>}
-                        <div> <HideButton /> </div> 
-                        <div> <ShowButton /> </div> 
+                        {jobCard.isFavorite ? <div onClick={() => this.props.deleteFavorite(jobCard.id)}>
+                                <DeleteFromFavoriteButton/>
+                            </div> : <div onClick={() => this.props.addFavorite(jobCard.id)}>
+                                <SaveToFavoriteButton/>
+                            </div>}
+                        {jobCard.isHidden ? <div onClick={() => this.props.hideCard(jobCard.id)}>
+                                <ShowButton />
+                            </div> : <div onClick={() => this.props.showCard(jobCard.id)}>
+                                <HideButton />
+                            </div>}
                     </div>
                 ))}
             </>

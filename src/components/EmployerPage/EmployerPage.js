@@ -11,7 +11,7 @@ export class EmployerPage extends React.Component {
                     <Header />
                 </div>
                 <div>
-                    <JobCards hide={this.props.hide} isFavorite={this.props.isFavorite}  jobCards={this.props.jobCards} jobCardId={this.props.jobCardId} addFavorite={this.props.addFavorite} deleteFavorite={this.props.deleteFavorite} />
+                    <JobCards showCard={this.props.showCard} hideCard={this.props.hideCard} isFavorite={this.props.isFavorite}  jobCards={this.props.jobCards} jobCardId={this.props.jobCardId} addFavorite={this.props.addFavorite} deleteFavorite={this.props.deleteFavorite} />
                 </div>
             </>
         )

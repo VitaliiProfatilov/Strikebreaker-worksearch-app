@@ -26,7 +26,7 @@ export class FavoritePage extends React.Component {
         return (
             <div className={styles.jobCardsContainer}>
             <span className={styles.vacanciesSpan}> Favorite vacancies: </span>
-            <JobCards jobCards={this.props.jobCards} jobCardId={this.props.jobCardId} deleteFavorite={this.props.deleteFavorite} isFavorite={this.props.isFavorite} addFavorite={this.props.addFavorite}/>
+            <JobCards showCard={this.props.showCard} hideCard={this.props.hideCard} jobCards={this.props.jobCards} jobCardId={this.props.jobCardId} deleteFavorite={this.props.deleteFavorite} isFavorite={this.props.isFavorite} addFavorite={this.props.addFavorite}/>
         </div>
         )
     }
