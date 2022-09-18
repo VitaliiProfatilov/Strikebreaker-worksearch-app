@@ -92,13 +92,13 @@ export class App extends React.Component {
     const isHidden = true;
     let jobCardsIsHidden = this.state.jobCards;
     jobCardsIsHidden[id-1].isHidden = isHidden;
-    //this.setState({hidden: [this.state.jobCards]})
-    //console.log(this.state.hidden)
+    this.setState({hidden: [this.state.jobCards]})
+    console.log(this.state.jobCards)
   }
   showCard(id) {
     const isHidden = false;
-    let jobCardsIsHidden = this.state.jobCards;
-    jobCardsIsHidden[id-1].isHidden = isHidden;
+    //let jobCardsIsHidden = this.state.jobCards;
+    //jobCardsIsHidden[id-1].isHidden = isHidden;
   }
 }
 
