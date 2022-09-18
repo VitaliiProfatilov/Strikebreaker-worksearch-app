@@ -2,8 +2,37 @@
     text-decoration: none;
 }
 
+.emptyJobCard {
+    background: #ffffff;
+    max-width: 70%;
+    padding: 2px 20px 2px 20px ;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgb(209, 207, 207);
+    height: 236px;
+    &:hover {
+        border: 1px solid rgb(151, 150, 150);
+    }
+    .emptyJobCardH1 {
+        margin-top: 60px;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+    }
+    .emptyJobCardH2 {
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+    }
+    .emptyJobCardButton {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 12%;
+    }
+}
+
 .jobCard {
-    display: block;
     background: #ffffff;
     max-height: 200px;
     max-width: 70%;
@@ -14,7 +43,6 @@
     color: black;
     &:hover {
         border: 1px solid rgb(151, 150, 150);
-        transform: none;
     }
     .title {
         &:hover {
@@ -60,6 +88,8 @@
     .jobCardFooter {
         display: flex;
         margin-left: 65%;
-        justify-content: space-between;
     }
+        .hideCard {
+            margin-right: 15px;
+        }
 }

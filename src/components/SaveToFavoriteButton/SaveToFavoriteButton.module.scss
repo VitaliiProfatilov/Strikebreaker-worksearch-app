@@ -1,19 +1,14 @@
-* {
-    text-decoration: none;
-}
-
 .button {
     display: block;
     text-decoration: none;
     background-color: #1fc1ec;
     color: white;
     border-radius: 5px;
-    margin-right: 12px;
     display: flex;
-    padding: 2px 4px 2px 4px;
+    padding: 2px 4px 1px 4px;
     border-color: rgb(35, 161, 161);
     font-weight: bold;
-    min-width: 130px;
+    min-width: 155px;
     &:hover {
         cursor: pointer;
         background-color: #1b9bbe;
@@ -23,6 +18,7 @@
     }
     .star {
         margin-top: 1px;
-        padding-right: 3px; 
+        padding-right: 3px;
+        margin-left: 11px;
     }
 }

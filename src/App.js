@@ -14,7 +14,7 @@ export class App extends React.Component {
     this.state = {
       jobCards: [
         {          
-          jobTitle: 'Chief Engineer',
+          jobTitle: 'Chief engineer',
           jobLogo: CorporationLogo,
           salary: '900$',
           typeOfSalary: 'Wage',
@@ -40,7 +40,6 @@ export class App extends React.Component {
       ],
       jobCard: [],
       favorite: [],
-      hidden: [],
     }
   this.addJobCard = this.addJobCard.bind(this);
   this.onPush = this.onPush.bind(this);
@@ -93,14 +92,13 @@ export class App extends React.Component {
     const isHidden = true;
     let jobCardsIsHidden = this.state.jobCards;
     jobCardsIsHidden[id-1].isHidden = isHidden;
-    //this.setState({hidden: [this.state.jobCards]})
-    console.log(this.state.jobCards)
+    this.setState({})
   }
   showCard(id) {
     const isHidden = false;
     let jobCardsIsHidden = this.state.jobCards;
     jobCardsIsHidden[id-1].isHidden = isHidden;
-    console.log(this.state.jobCards)
+    this.setState({})
   }
 }
 

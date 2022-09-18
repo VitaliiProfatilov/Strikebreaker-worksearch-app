@@ -12,6 +12,11 @@ export class JobCards extends React.Component {
         return (
             <>
                 {this.props.jobCards.map((jobCard) => (
+                    jobCard.isHidden ? <div className={styles.emptyJobCard} key={jobCard.id} >
+                       <span className={styles.emptyJobCardH1}> You have hidden a vacancy </span> 
+                       <span className={styles.emptyJobCardH2}> «{jobCard.jobTitle}» of the «{jobCard.сompanyName}» сompany. </span>
+                       <div className={styles.emptyJobCardButton} onClick={() => this.props.showCard(jobCard.id)}> <ShowButton /> </div>
+                    </div> :
                     <div className={styles.jobCard} key={jobCard.id} >
                         <div className={styles.cardTop}>
                             <Link to='/VacancyPage' className={styles.title} onClick={() => this.props.jobCardId(jobCard.id)} > {jobCard.jobTitle} </Link>
@@ -23,11 +28,9 @@ export class JobCards extends React.Component {
                             <li className={styles.description}> {jobCard.description} </li>
                         </ul>
                         <div className={styles.jobCardFooter}>
-                            {jobCard.isHidden === true ? <div onClick={() => this.props.showCard(jobCard.id)}>
-                                    <ShowButton />
-                                </div> : <div onClick={() => this.props.hideCard(jobCard.id)}>
-                                    <HideButton />
-                                </div>}
+                            <div className={styles.hideCard} onClick={() => this.props.hideCard(jobCard.id)}>
+                                <HideButton />
+                            </div>
                             {jobCard.isFavorite ? <div onClick={() => this.props.deleteFavorite(jobCard.id)}>
                                     <DeleteFromFavoriteButton/>
                                 </div> : <div onClick={() => this.props.addFavorite(jobCard.id)}>
