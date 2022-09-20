@@ -7,15 +7,13 @@
     background-color: rgb(245, 245, 245);
     margin: 0 25% 30px 25%;
     padding: 30px 40px 30px 40px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     h2 {
         margin-bottom: 25px;
     }
-    .vacancyForm {
+    form {
         input, textarea, label {
-            font-weight: bold ;
             display: block;
-            opacity: 0.8;
             border-radius: 5px;
             width: 100%;
             padding-left: 10px;
@@ -27,26 +25,63 @@
         input {
             border: 1px solid rgb(209, 207, 207);
             height: 40px;
+            font-size: 15px;
+            font-family: 'Inter';
         }
         textarea {
             border: 1px solid rgb(209, 207, 207);
             height: 120px;
             resize: none;
             padding-top: 10px;
+            font-size: 15px;            
+            font-family: 'Inter';
+        }
+        label {
+            font-weight: bold;
         }
         * {
             div {
                 color: red;
                 margin-left: 10px;
-                //display: none;
             }
             &:last-child {
                 margin-bottom: 20px;
             }
         }
         .file {
-            border: none;
             margin-bottom: 20px;
+        }
+        .dropdawn {
+            display: flex;
+            justify-content: space-between;      
+            font-size: 15px;
+            opacity: 0.8;
+            border-radius: 5px;
+            height: 30px;
+            border: 1px solid rgb(209, 207, 207);
+            width: 50%;
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 10px 10px 0px 10px;
+            span {
+                font-size: 20px;
+            }
+        }
+        .dropdawnMenu {
+            position: absolute;
+            background-color: white;
+            border: 1px solid rgb(209, 207, 207);
+            width: 316px;
+            z-index: 1000;
+            border-radius: 5px;
+            -webkit-box-shadow: 0px 9px 20px -1px rgba(0,0,0,0.66); 
+            box-shadow: 0px 9px 20px -1px rgba(0,0,0,0.66);
+            li {
+                padding: 10px 10px 0px 10px;
+                font-size: 15px;
+                font-weight: 550;
+                cursor: pointer;
+            }
         }
     }    
 }
