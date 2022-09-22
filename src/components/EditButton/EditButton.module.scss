@@ -1,5 +1,4 @@
 .button {
-    display: flex;
     text-decoration: none;
     background-color: #1fc1ec;
     color: white;
@@ -7,17 +6,16 @@
     padding: 2px 4px 1px 4px;
     border-color: rgb(35, 161, 161);
     font-weight: bold;
-    min-width: 155px;
+    display: flex;
+    margin-right: 20px;
     &:hover {
-        cursor: pointer;
-        background-color: #1b9bbe;
+            cursor: pointer;
+            background-color: #1b9bbe;
     }
     &:active {
-        transform: scale(1.1);
+            transform: scale(1.1);
     }
-    .star {
-        margin-top: 1px;
-        padding-right: 3px;
-        margin-left: 11px;
+    .editLine {
+        margin-right: 2px;
     }
 }

@@ -24,6 +24,11 @@ export class App extends React.Component {
           id: 1,
           isFavorite: false,
           isHidden: false,
+          mainBusiness: 'Сonstruction',
+          typeOfEmployment: 'Full employment',
+          workExperience: '2-5 years',
+          education: 'Complete higher',
+          employees: '250 and more',
         },
         {          
           jobTitle: 'Waiter',
@@ -36,6 +41,11 @@ export class App extends React.Component {
           id: 2,
           isFavorite: false,
           isHidden: false,
+          mainBusiness: 'Service',
+          typeOfEmployment: 'Underemployment',
+          workExperience: 'Without experience',
+          education: 'Technical College',
+          employees: 'less than 100',
         }
       ],
       jobCard: [],
@@ -55,7 +65,7 @@ export class App extends React.Component {
           <Route path='/' element={<EmployerPage showCard={this.showCard} hideCard={this.hideCard} jobCards={this.state.jobCards} jobCardId={this.onPush} addFavorite={this.addFavorite} deleteFavorite={this.deleteFavorite} />} />
           <Route path='applicant' element={<ApplicantPage />} />
           <Route path='AddVacancy' element={<AddVacancy onAdd={this.addJobCard}/>} />
-          <Route path='VacancyPage' element={<VacancyPage jobCard={this.state.jobCard}/>} />
+          <Route path='VacancyPage' element={<VacancyPage jobCard={this.state.jobCard} deleteFavorite={this.deleteFavorite} addFavorite={this.addFavorite} jobCardId={this.onPush}/>} />
           <Route path='Favorite' element={<FavoritePage showCard={this.showCard} hideCard={this.hideCard} jobCards={this.state.favorite} jobCardId={this.onPush} deleteFavorite={this.deleteFavorite} addFavorite={this.addFavorite}/>}/>
         </Routes>
       </>
@@ -75,6 +85,7 @@ export class App extends React.Component {
     let isInArray = false;
     let jobCardsIsFavorite = this.state.jobCards;
     jobCardsIsFavorite[id-1].isFavorite = isFavorite;
+    //console.log(this.state.jobCards)
     this.state.favorite.forEach(el=>{
       if(el.id === id) 
         isInArray = true

@@ -75,32 +75,32 @@ export class AddVacancy extends React.Component {
                     <form>
                         <div>
                             <label> Job title <span>*</span>: </label> 
-                            <input placeholder='For example: street cleaner' onChange={(e) => this.setState({ jobTitle: e.target.value })}></input>
+                            <input maxlength="50" placeholder='For example: street cleaner' onChange={(e) => this.setState({ jobTitle: e.target.value })}></input>
                             <div> {this.state.jobTitleEror} </div>
                         </div>
                         <div>
                             <label> Salary <span>*</span>: </label> 
-                            <input placeholder='Enter the salary' onChange={(e) => {this.setState({ salary: e.target.value })}}></input>
+                            <input maxlength="50" placeholder='Enter the salary' onChange={(e) => {this.setState({ salary: e.target.value })}}></input>
                             <div> {this.state.salaryEror} </div>
                         </div>
                         <div>
                             <label> Type of salary <span>*</span>: </label> 
-                            <input placeholder='For example: wage + % of sales' onChange={(e) => this.setState({ typeOfSalary: e.target.value })}></input>
+                            <input maxlength="50" placeholder='For example: wage + % of sales' onChange={(e) => this.setState({ typeOfSalary: e.target.value })}></input>
                             <div> {this.state.typeOfSalaryEror} </div>
                         </div>
                         <div>
                             <label> Company name<span>*</span>: </label> 
-                            <input placeholder='Employer company name' onChange={(e) => this.setState({ сompanyName: e.target.value })}></input>
+                            <input maxlength="50" placeholder='Employer company name' onChange={(e) => this.setState({ сompanyName: e.target.value })}></input>
                             <div> {this.state.сompanyNameEror} </div>
                         </div>
                         <div>
                             <label> Vacancy name<span>*</span>: </label> 
-                            <input placeholder='For example: 408 Conger Dr Mesquite, Texas(TX)' onChange={(e) => this.setState({ location: e.target.value })}></input>
+                            <input maxlength="50" placeholder='For example: 408 Conger Dr Mesquite, Texas(TX)' onChange={(e) => this.setState({ location: e.target.value })}></input>
                             <div> {this.state.locationEror} </div>
                         </div>
                         <div>
                             <label> Main business of the company: </label> 
-                            <input placeholder='For example: mining' onChange={(e) => this.setState({ mainBusiness: e.target.value })}></input>
+                            <input maxlength="50" placeholder='For example: mining' onChange={(e) => this.setState({ mainBusiness: e.target.value })}></input>
                         </div>
                         <>
                             <label> The number of employees<span>*</span>: </label>
@@ -123,22 +123,22 @@ export class AddVacancy extends React.Component {
                             </div>}
                         </>
                         <>
-                            <label> Work experience<span>*</span>: </label>
-                            <div className={styles.dropdawn} onClick={()=>{this.setState({experienceDropdawn: !this.state.experienceDropdawn})}}> {this.state.workExperience} <span> {this.state.experienceDropdawn ? <IoIosArrowDropup/> : <IoIosArrowDropdown/>} </span> </div>
-                            {this.state.experienceDropdawn && <div className={styles.dropdawnMenu}> 
-                                <ul>
-                                    {workExperienc.map((workExp) => (
-                                        <li key={workExp.id} onClick={() => {this.workExperience(workExp.id); this.setState({experienceDropdawn: !this.state.experienceDropdawn})}}> {workExp.workExperienc} </li>))}
-                                </ul>
-                            </div>}
-                        </>
-                        <>
                             <label> Education<span>*</span>: </label>
                             <div className={styles.dropdawn} onClick={()=>{this.setState({educationDropdawn: !this.state.educationDropdawn})}}> {this.state.education} <span> {this.state.educationDropdawn ? <IoIosArrowDropup/> : <IoIosArrowDropdown/>} </span> </div>
                             {this.state.educationDropdawn && <div className={styles.dropdawnMenu}> 
                                 <ul>
                                     {education.map((educationDegree) => (
                                         <li key={educationDegree.id} onClick={() => {this.education(educationDegree.id); this.setState({educationDropdawn: !this.state.educationDropdawn})}}> {educationDegree.education} </li>))}
+                                </ul>
+                            </div>}
+                        </>
+                        <>
+                            <label> Work experience<span>*</span>: </label>
+                            <div className={styles.dropdawn} onClick={()=>{this.setState({experienceDropdawn: !this.state.experienceDropdawn})}}> {this.state.workExperience} <span> {this.state.experienceDropdawn ? <IoIosArrowDropup/> : <IoIosArrowDropdown/>} </span> </div>
+                            {this.state.experienceDropdawn && <div className={styles.dropdawnMenu}> 
+                                <ul>
+                                    {workExperienc.map((workExp) => (
+                                        <li key={workExp.id} onClick={() => {this.workExperience(workExp.id); this.setState({experienceDropdawn: !this.state.experienceDropdawn})}}> {workExp.workExperienc} </li>))}
                                 </ul>
                             </div>}
                         </>    
