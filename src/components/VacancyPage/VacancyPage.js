@@ -8,18 +8,20 @@ import { BackButton } from '../BackButton';
 import { SaveToFavoriteButton } from '../SaveToFavoriteButton';
 import { DeleteFromFavoriteButton } from '../DeleteFromFavoriteButton';
 import { EditButton } from '../EditButton';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export class VacancyPage extends React.Component {
     render() {
         return (
             <>
                 {this.props.jobCard.map((jobCard) => (
-                    <>
+                    <div key={jobCard.id} >
                         <div className={styles.header}>
                             <BackButton/>
                             <div className={styles.headerRight}>
-                                <EditButton/>                    
+                                <Link to="/AddVacancy" className={styles.EditButton} > 
+                                    <EditButton/> 
+                                </Link>                                                   
                             {jobCard.isFavorite ? <div onClick={() => {this.props.deleteFavorite(jobCard.id); this.props.jobCardId(jobCard.id) }}>
                                     <DeleteFromFavoriteButton/>
                                 </div> : <div onClick={() => {this.props.addFavorite(jobCard.id); this.props.jobCardId(jobCard.id) }}>
@@ -27,7 +29,7 @@ export class VacancyPage extends React.Component {
                                 </div>}
                             </div>
                         </div>
-                        <div className={styles.jobCard} key={jobCard.id}>
+                        <div className={styles.jobCard}>
                             <div className={styles.cardTop}>
                                 <div className={styles.title}> {jobCard.jobTitle} </div>
                                 <div className={styles.logo}> <img src={jobCard.jobLogo} alt=""/> </div>
@@ -41,7 +43,7 @@ export class VacancyPage extends React.Component {
                                 <li> {jobCard.description} </li>
                             </ul>
                         </div>
-                    </>                
+                    </div>                
                 ))}
             </>
         )

@@ -12,6 +12,9 @@ body {
     justify-content: space-between;
     .headerRight {
         display: flex;
+        .EditButton {
+            margin-right: 20px;
+        }
     }
 }
 
@@ -36,8 +39,8 @@ body {
             margin-top: auto;
         }
         .logo {
-            max-width: 100px;
-            max-height: 30px;
+            max-width: 10%;
+            max-height: 10%;
             margin-top: auto;
             margin-right: 60px;
             margin-top: 40px;

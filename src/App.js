@@ -50,6 +50,7 @@ export class App extends React.Component {
       ],
       jobCard: [],
       favorite: [],
+      editCard: [],
     }
   this.addJobCard = this.addJobCard.bind(this);
   this.onPush = this.onPush.bind(this);
@@ -57,25 +58,29 @@ export class App extends React.Component {
   this.deleteFavorite = this.deleteFavorite.bind(this);
   this.hideCard = this.hideCard.bind(this);
   this.showCard = this.showCard.bind(this);
+  this.onEdit = this.onEdit.bind(this);
+  this.edit = this.edit.bind(this);
   }
   render() {
     return (
       <>
         <Routes>
           <Route path='/' element={<EmployerPage showCard={this.showCard} hideCard={this.hideCard} jobCards={this.state.jobCards} jobCardId={this.onPush} addFavorite={this.addFavorite} deleteFavorite={this.deleteFavorite} />} />
-          <Route path='applicant' element={<ApplicantPage />} />
-          <Route path='AddVacancy' element={<AddVacancy onAdd={this.addJobCard}/>} />
+          <Route path='Applicant' element={<ApplicantPage edit={this.edit} />} />
+          <Route path='AddVacancy' element={<AddVacancy onEdit={this.onEdit} onAdd={this.addJobCard} jobCard={this.state.jobCard}/>} />
           <Route path='VacancyPage' element={<VacancyPage jobCard={this.state.jobCard} deleteFavorite={this.deleteFavorite} addFavorite={this.addFavorite} jobCardId={this.onPush}/>} />
           <Route path='Favorite' element={<FavoritePage showCard={this.showCard} hideCard={this.hideCard} jobCards={this.state.favorite} jobCardId={this.onPush} deleteFavorite={this.deleteFavorite} addFavorite={this.addFavorite}/>}/>
+          
         </Routes>
       </>
     )
   }
+  //<Route path="*" element={NotFound}>
   addJobCard(newJobCard) {
-    const id = this.state.jobCards.length + 1;
+    newJobCard.id = this.state.jobCards.length + 1;
     const isFavorite = false;
     const isHidden = false;
-    this.setState({jobCards: [...this.state.jobCards, {id, isFavorite, isHidden, ...newJobCard}]})
+    this.setState({jobCards: [...this.state.jobCards, {isFavorite, isHidden, ...newJobCard}]})
   }
   onPush(id) {
     this.setState({jobCard: this.state.jobCards.filter((el) => el.id === id)})
@@ -95,8 +100,8 @@ export class App extends React.Component {
   }
   deleteFavorite(id) {
     const isFavorite = false;
-    let jobCardsIsFavorite = this.state.jobCards;
-    jobCardsIsFavorite[id-1].isFavorite = isFavorite;
+    let jobCardsNotFavorite = this.state.jobCards;
+    jobCardsNotFavorite[id-1].isFavorite = isFavorite;
     this.setState({favorite: this.state.favorite.filter((el) => el.id !== id)})
   }
   hideCard(id) {
@@ -104,11 +109,20 @@ export class App extends React.Component {
     let jobCardsIsHidden = this.state.jobCards;
     jobCardsIsHidden[id-1].isHidden = isHidden;
     this.setState({})
+    console.log(this.state.jobCards)
   }
   showCard(id) {
     const isHidden = false;
-    let jobCardsIsHidden = this.state.jobCards;
-    jobCardsIsHidden[id-1].isHidden = isHidden;
+    let jobCardsNotHidden = this.state.jobCards;
+    jobCardsNotHidden[id-1].isHidden = isHidden;
+    this.setState({})
+  }
+  edit() {
+    this.setState({jobCard: []})
+  }
+  onEdit(editElement) {
+    let jobCardsIsEdit = this.state.jobCards;
+    jobCardsIsEdit[editElement.id-1] = editElement;
     this.setState({})
   }
 }

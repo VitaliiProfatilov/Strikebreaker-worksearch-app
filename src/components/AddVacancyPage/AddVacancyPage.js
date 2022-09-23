@@ -50,6 +50,7 @@ export class AddVacancy extends React.Component {
             сompanyNameEror: '',
             locationEror: '',
             descriptionEror: '',
+            id: '',
             typeOfEmployment: 'Full employment',
             workExperience: 'Without experience',
             education: 'Technical College',
@@ -71,36 +72,36 @@ export class AddVacancy extends React.Component {
             <div className={styles.container}>
                 <LogoRevers/>
                 <div className={styles.vacancyConteiner}>
-                    <h2> Vacancy description </h2>                    
+                    <h2> Vacancy description </h2>
                     <form>
                         <div>
                             <label> Job title <span>*</span>: </label> 
-                            <input maxlength="50" placeholder='For example: street cleaner' onChange={(e) => this.setState({ jobTitle: e.target.value })}></input>
+                            <input maxLength="50" placeholder='For example: street cleaner' onChange={(e) => this.setState({ jobTitle: e.target.value })} value={this.state.jobTitle}></input>
                             <div> {this.state.jobTitleEror} </div>
                         </div>
                         <div>
                             <label> Salary <span>*</span>: </label> 
-                            <input maxlength="50" placeholder='Enter the salary' onChange={(e) => {this.setState({ salary: e.target.value })}}></input>
+                            <input maxLength="50" placeholder='Enter the salary' onChange={(e) => {this.setState({ salary: e.target.value })}} value={this.state.salary}></input>
                             <div> {this.state.salaryEror} </div>
                         </div>
                         <div>
                             <label> Type of salary <span>*</span>: </label> 
-                            <input maxlength="50" placeholder='For example: wage + % of sales' onChange={(e) => this.setState({ typeOfSalary: e.target.value })}></input>
+                            <input maxLength="50" placeholder='For example: wage + % of sales' onChange={(e) => this.setState({ typeOfSalary: e.target.value })} value={this.state.typeOfSalary}></input>
                             <div> {this.state.typeOfSalaryEror} </div>
                         </div>
                         <div>
                             <label> Company name<span>*</span>: </label> 
-                            <input maxlength="50" placeholder='Employer company name' onChange={(e) => this.setState({ сompanyName: e.target.value })}></input>
+                            <input maxLength="50" placeholder='Employer company name' onChange={(e) => this.setState({ сompanyName: e.target.value })} value={this.state.сompanyName}></input>
                             <div> {this.state.сompanyNameEror} </div>
                         </div>
                         <div>
                             <label> Vacancy name<span>*</span>: </label> 
-                            <input maxlength="50" placeholder='For example: 408 Conger Dr Mesquite, Texas(TX)' onChange={(e) => this.setState({ location: e.target.value })}></input>
+                            <input maxLength="50" placeholder='For example: 408 Conger Dr Mesquite, Texas(TX)' onChange={(e) => this.setState({ location: e.target.value })} value={this.state.location}></input>
                             <div> {this.state.locationEror} </div>
                         </div>
                         <div>
                             <label> Main business of the company: </label> 
-                            <input maxlength="50" placeholder='For example: mining' onChange={(e) => this.setState({ mainBusiness: e.target.value })}></input>
+                            <input maxLength="50" placeholder='For example: mining' onChange={(e) => this.setState({ mainBusiness: e.target.value })} value={this.state.mainBusiness}></input>
                         </div>
                         <>
                             <label> The number of employees<span>*</span>: </label>
@@ -144,17 +145,17 @@ export class AddVacancy extends React.Component {
                         </>    
                         <div>
                             <label> Logo : </label> 
-                            <input className={styles.file} placeholder='Company logo URL' onChange={(e) => this.setState({ jobLogo: e.target.value})} />
+                            <input className={styles.file} placeholder='Company logo URL' onChange={(e) => this.setState({ jobLogo: e.target.value})} value={this.state.jobLogo}></input>
                         </div>
                         <div>
                             <label> Description <span>*</span>: </label> 
-                            <textarea placeholder='Describe the proposed vacancy' onChange={(e) => this.setState({ description: e.target.value })}></textarea>
+                            <textarea placeholder='Describe the proposed vacancy' onChange={(e) => this.setState({ description: e.target.value })} value={this.state.description}></textarea>
                             <div> {this.state.descriptionEror} </div>
                         </div>
                     </form>
                 </div>
                 <div>
-                    <Link className={styles.Link} onClick={() => { if (this.state.data === true) {this.props.onAdd ({ 
+                    <Link className={styles.Link} onClick={() => { if (this.state.data === true) {(this.state.id === '' ? this.props.onAdd : this.props.onEdit) ({ 
                         jobTitle: this.state.jobTitle,
                         salary: this.state.salary,
                         typeOfSalary: this.state.typeOfSalary,
@@ -166,8 +167,9 @@ export class AddVacancy extends React.Component {
                         mainBusiness: this.state.mainBusiness,
                         workExperience: this.state.workExperience,
                         education: this.state.education,
-                        employees: this.state.employees,  
-                    })}; this.emptyInputEror(); }} onMouseEnter={this.goHome} to={this.state.link} > Add &gt; </Link>
+                        employees: this.state.employees,
+                        id: this.state.id,
+                    })}; this.emptyInputEror(); }} onMouseEnter={this.goHome} to={this.state.link} >{this.state.id === '' ? 'Add' : 'Save'}</Link>
                 </div>
                 <Footer/>
             </div>
@@ -205,4 +207,21 @@ export class AddVacancy extends React.Component {
     employees(id) {
         this.setState({employees: id === '1' ? 'less than 100' : id === '2' ? '100-250' : '250 and more'})
     }
+    componentDidMount() {
+        this.props.jobCard.map((jobCard) => ( 
+            this.setState({
+            jobTitle: jobCard.jobTitle,
+            salary: jobCard.salary,
+            typeOfSalary: jobCard.typeOfSalary,
+            сompanyName: jobCard.сompanyName,
+            location: jobCard.location,
+            description: jobCard.description,
+            jobLogo: jobCard.jobLogo,
+            mainBusiness: jobCard.mainBusiness,
+            typeOfEmployment: jobCard.typeOfEmployment,
+            workExperience: jobCard.workExperience,
+            education: jobCard.education,
+            employees: jobCard.employees,
+            id: jobCard.id,
+    })))}      
 }
