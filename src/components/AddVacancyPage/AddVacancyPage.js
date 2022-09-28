@@ -19,11 +19,11 @@ const employment = [
 
 const workExperienc = [
     {workExperienc: 'Without experience', id: '1'},
-    {workExperienc: 'Half a year', id: '2'},
-    {workExperienc: 'Year', id: '3'},
-    {workExperienc: '2 years', id: '4'},
-    {workExperienc: '2-5 years', id: '5'},
-    {workExperienc: '5 years and more', id: '6'},
+    {workExperienc: 'Half a year experience', id: '2'},
+    {workExperienc: 'Year experience', id: '3'},
+    {workExperienc: '2 years experience', id: '4'},
+    {workExperienc: '2-5 years experience', id: '5'},
+    {workExperienc: '5 years experience and more', id: '6'},
 ]
 
 const education = [
@@ -52,7 +52,7 @@ export class AddVacancy extends React.Component {
             descriptionEror: '',
             id: '',
             typeOfEmployment: 'Full employment',
-            workExperience: 'Without experience',
+            workExperience: 'without experience',
             education: 'Technical College',
             employees: 'less than 100',
             data: false,
@@ -199,7 +199,7 @@ export class AddVacancy extends React.Component {
         this.setState({typeOfEmployment: id === '1' ? 'Full employment' : 'Underemployment'})
     }
     workExperience(id) {
-        this.setState({workExperience: id === '1' ? 'Without experience' : id === '2' ? 'Half a year' : id === '3' ? 'Year' : id === '4' ? '2 years' : id === '5' ? '2-5 years' : '5 years and more' })
+        this.setState({workExperience: id === '1' ? 'Without experience' : id === '2' ? 'Half a year experience' : id === '3' ? 'Year experience' : id === '4' ? '2 years experience' : id === '5' ? '2-5 years experience' : '5 years experience and more' })
     }
     education(id) {
         this.setState({education: id === '1' ? 'Technical College' : id === '2' ? 'Incomplete higher' : 'Complete higher'})

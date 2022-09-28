@@ -17,23 +17,29 @@
             height: 100%;
         }
     }
-    .HeaderButtons {
+    .headerButtons {
         display: flex;
         color: rgb(255, 255, 255);
         margin-top: 30px;
         font-weight: bold;
-        .pageButton {
-            margin-right: 100px;    
+        .pageButtons {
+            margin-right: 100px;
+            .rightButtons {
+                display: flex;
+                .addButton {
+                    font-size: 26px;
+                    display: flex;
+                }
+                .toButton {
+                    margin-left: 20px;
+                }
+            }    
         }
         .headerFavorit {
             font-size: 26px;
             display: flex;
             color: white;
             margin-right: 20px;
-            .span {
-                padding-top: 2px;
-                padding-right: 2px;
-            }
             &:hover {
                 text-decoration: underline;
             }
@@ -41,5 +47,9 @@
                 color: rgb(221, 221, 221);
             }
         }
+    }
+    .span {
+        padding-top: 3px;
+        padding-right: 4px;
     }
 }

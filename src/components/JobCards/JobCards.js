@@ -15,7 +15,7 @@ export class JobCards extends React.Component {
                     jobCard.isHidden ? <div className={styles.emptyJobCard} key={jobCard.id} >
                        <span className={styles.emptyJobCardH1}> You have hidden a vacancy </span> 
                        <span className={styles.emptyJobCardH2}> «{jobCard.jobTitle}» of the «{jobCard.сompanyName}» сompany. </span>
-                       <div className={styles.emptyJobCardButton} onClick={() => this.props.showCard(jobCard.id)}> <ShowButton /> </div>
+                       <div className={styles.emptyJobCardButton} onClick={() => this.props.hideCard(jobCard.id)}> <ShowButton /> </div>
                     </div> :
                     <div className={styles.jobCard} key={jobCard.id} >
                         <div className={styles.cardTop}>

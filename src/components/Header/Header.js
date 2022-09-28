@@ -5,6 +5,9 @@ import { ApplicantButton } from '../ApplicantButton';
 import { AddVacancyButton } from '../AddVacancyButton';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { FaRegAddressCard } from 'react-icons/fa';
+import { AiOutlineFileAdd } from 'react-icons/ai';
+import { EmployerButton } from '../EmployerButton';
 
 export class Header extends React.Component {
     render() {
@@ -13,20 +16,27 @@ export class Header extends React.Component {
                 <div className={styles.logo}>
                     <img src={Logo} alt=""/>
                 </div>
-                <div className={styles.HeaderButtons}>
+                <div className={styles.headerButtons}>
                     <Link className={styles.headerFavorit} to='/Favorite'>
                         <div className={styles.span}>  <AiOutlineStar /> </div>
                         Favorit
                     </Link>
-                    <div className={styles.pageButton}>
-                       {window.location.href === 'http://localhost:3000/' ? <div>
-                            <ApplicantButton />
-                        </div> : <div className={styles.HeaderButtons}>
-                            <div onClick={() => this.props.edit()}>
+                    <div className={styles.pageButtons}>
+                       {window.location.href === 'http://localhost:3000/' ? <div className={styles.rightButtons}>
+                            <div className={styles.addButton}>
+                                <div className={styles.span}> <FaRegAddressCard /> </div>
+                                Add resume
+                            </div>
+                            <div className={styles.toButton}> 
+                                <ApplicantButton /> 
+                            </div>
+                        </div> : <div className={styles.rightButtons}>
+                            <div className={styles.addButton} onClick={() => this.props.edit()}>
+                                <div className={styles.span}> <AiOutlineFileAdd/> </div>
                                 <AddVacancyButton />
                             </div>
-                            <div>
-                                hi
+                            <div className={styles.toButton}>
+                                <EmployerButton/>
                             </div>
                         </div>}
                     </div>

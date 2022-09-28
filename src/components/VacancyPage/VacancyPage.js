@@ -38,7 +38,7 @@ export class VacancyPage extends React.Component {
                                 <li className={styles.li}> <span> <RiMoneyDollarCircleFill/> </span> {jobCard.salary} <span> {jobCard.typeOfSalary} </span> </li>
                                 <li className={styles.li}> <span> <FaBuilding/> </span> {jobCard.сompanyName} <div className={styles.comnyInfo}> {jobCard.mainBusiness}, {jobCard.employees} employees.  </div> </li>
                                 <li className={styles.li}> <span> <MdLocationOn/> </span> {jobCard.location} </li>
-                                <li> <span> <BsCheck/> </span> {jobCard.typeOfEmployment}. Work experience {jobCard.workExperience}. {jobCard.education}. </li>
+                                <li> <span> <BsCheck/> </span> {jobCard.typeOfEmployment}. {jobCard.workExperience}. {jobCard.education}. </li>
                                 <h2> Vacancy description </h2>
                                 <li> {jobCard.description} </li>
                             </ul>

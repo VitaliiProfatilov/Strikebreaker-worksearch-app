@@ -1,0 +1,14 @@
+.employerLinc {
+    font-size: 26px;
+    text-decoration: none;
+    color: white;
+    &:hover {
+        cursor: pointer;
+        span {
+            text-decoration: underline;
+        }
+    }
+    &:active {
+        color: rgb(221, 221, 221);
+    }
+}

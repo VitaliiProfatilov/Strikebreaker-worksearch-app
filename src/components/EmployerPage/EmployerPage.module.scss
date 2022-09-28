@@ -1,3 +1,78 @@
-.hidden {
-    display: none;
+.topContainer{
+    display: flex;
+    margin: 10px auto 10px auto ;
+    width: 680px;
+    .dropdawnContainer {
+        margin-left: 50px;
+        .dropdawn {
+            display: flex;
+            justify-content: space-between;      
+            font-size: 15px;
+            border-radius: 5px;
+            border: 1px solid rgb(209, 207, 207);
+            width: 180px;
+            background-color: white;
+            padding-left: 10px;
+            padding-top: 5px;
+            span {
+                font-size: 20px;
+                cursor: pointer;
+            }
+        }
+        .dropdawnMenu {
+            position: absolute;
+            background-color: white;
+            border: 1px solid rgb(209, 207, 207);
+            min-width: 190px;
+            z-index: 1000;
+            border-radius: 5px;
+            -webkit-box-shadow: 0px 9px 20px -1px rgba(0,0,0,0.66); 
+            box-shadow: 0px 9px 20px -1px rgba(0,0,0,0.66);
+            width: 160px;
+            li {
+                padding: 10px 10px 0px 10px;
+                font-size: 15px;
+                font-weight: 550;
+                cursor: pointer;
+            }
+        }
+    }
+    .inputContainer {
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid rgb(209, 207, 207);
+        padding-left: 10px;
+        width: 420px;
+        display: flex;
+        background-color: white;
+        input {
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            padding-left: 10px;
+            font-size: 15px;
+            font-family: 'Inter';
+            outline: none;
+        }
+        &:hover {
+            border: 1px solid rgba(209, 207, 207, 0.699);
+        }
+        &:active {
+            border: 1px solid rgba(209, 207, 207, 0.356);
+        }
+        .GrSearch {
+            margin: auto 0 auto 0;
+        }
+        button {
+            width: 80px;
+            font-weight: bold;
+            color: white;
+            background-color: #1fc1ec;
+            border: none;
+            border-radius: 5px;
+            &:active {
+                scale: 0.9;
+            }
+        }
+    }
 }

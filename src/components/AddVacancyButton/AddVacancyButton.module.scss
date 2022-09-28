@@ -1,4 +1,10 @@
 .AddVacancyButton {
-    font-size: 14px;
-    margin-right: 200px;
+    font-size: 26px;
+    color: white;
+    &:hover {
+        text-decoration: underline;
+    }
+    &:active {
+        color: rgb(221, 221, 221);
+    }
 }
