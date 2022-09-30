@@ -12,14 +12,14 @@ export class ResumeCards extends React.Component {
         return (
             <>
                 {this.props.resumeCards.map((resumeCard) => (
-                    resumeCard.isHidden ? <div className={styles.emptyJobCard} key={resumeCard.id} >
-                       <span className={styles.emptyJobCardH1}> You have hidden a vacancy </span> 
-                       <span className={styles.emptyJobCardH2}> «» of the «» сompany. </span>
-                       <div className={styles.emptyJobCardButton} onClick={() => this.props.hideCard(resumeCard.id)}> <ShowButton /> </div>
+                    resumeCard.isHidden ? <div className={styles.emptyCard} key={resumeCard.id} >
+                       <span className={styles.emptyCardH1}> You have hidden a resume </span> 
+                       <span className={styles.emptyCardH2}> «{resumeCard.jobPosition}» from «{resumeCard.firstName} {resumeCard.lastName}». </span>
+                       <div className={styles.emptyCardButton} onClick={() => this.props.hideCard(resumeCard.id)}> <ShowButton /> </div>
                     </div> :
-                    <div className={styles.jobCard} key={resumeCard.id} >
+                    <div className={styles.card} key={resumeCard.id} >
                         <div className={styles.cardTop}>
-                            <Link to='/VacancyPage' className={styles.title} onClick={() => this.props.resumeCardId(resumeCard.id)} > {resumeCard.jobPosition} </Link>
+                            <Link to='/Resume' className={styles.title} onClick={() => this.props.resumeCardId(resumeCard.id)} > {resumeCard.jobPosition} </Link>
                             <div className={styles.logo}> <img src={resumeCard.photo} alt=""/> </div>
                         </div>
                         <div> 
@@ -28,7 +28,7 @@ export class ResumeCards extends React.Component {
                         <div> 
                             {resumeCard.cityToWork}  
                         </div>
-                        <div className={styles.jobCardFooter}>
+                        <div className={styles.cardFooter}>
                             <div className={styles.hideCard} onClick={() => this.props.hideCard(resumeCard.id)}>
                                 <HideButton />
                             </div>

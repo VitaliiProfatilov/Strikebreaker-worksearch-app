@@ -29,13 +29,21 @@ export class EmployerPage extends React.Component {
         super(props)
         this.state = {
             filterDropdawn: false,
+            employerCard: this.props.jobCards,
+            employment: '',
+            experience: '',
+            edukation: '',
         }
+    this.filterEmployment = this.filterEmployment.bind(this);
+    this.filterExperience = this.filterExperience.bind(this);
+    this.filterEdukation = this.filterEdukation.bind(this);
+    this.filtered = this.filtered.bind(this);
     }
     render() {
         return (
             <>
                 <div>
-                    <Header/>
+                    <Header editResume={this.props.editResume}/>
                 </div>
                     <div className={styles.topContainer}>
                         <div className={styles.inputContainer}>
@@ -48,19 +56,40 @@ export class EmployerPage extends React.Component {
                             {this.state.filterDropdawn && <div className={styles.dropdawnMenu}> 
                                     <ul>
                                         {employmentFilter.map((employment) => (
-                                        <li key={employment.id} onClick={() => this.props.filterEmployment(employment.employment)}> {employment.employment} </li>))}
+                                        <li key={employment.id} onClick={() => this.filterEmployment(employment.employment)}> {employment.employment} </li>))}
                                         {experienceFilter.map((experience) => (
-                                        <li key={experience.id} onClick={() => this.props.filterExperience(experience.experience)}> {experience.experience} </li>))}
+                                        <li key={experience.id} onClick={() => this.filterExperience(experience.experience)}> {experience.experience} </li>))}
                                         {edukationFilter.map((edukation) => (
-                                        <li key={edukation.id} onClick={() => this.props.filterEdukation(edukation.edukation)}> {edukation.edukation} </li>))}
+                                        <li key={edukation.id} onClick={() => this.filterEdukation(edukation.edukation)}> {edukation.edukation} </li>))}
                                     </ul>
                                 </div>}
                         </div>
                     </div>
                 <div>
-                    <JobCards hideCard={this.props.hideCard} isFavorite={this.props.isFavorite}  jobCards={this.props.jobCards} jobCardId={this.props.jobCardId} addFavorite={this.props.addFavorite} deleteFavorite={this.props.deleteFavorite} />
+                    <JobCards hideCard={this.props.hideCard} isFavorite={this.props.isFavorite}  jobCards={this.state.employerCard} jobCardId={this.props.jobCardId} addFavorite={this.props.addFavorite} deleteFavorite={this.props.deleteFavorite} />
                 </div>
             </>
         )
+    }
+    filterEmployment(employment) {
+        this.setState({employment: employment});
+        this.filtered();
+    }
+    filterExperience(experience) {
+        this.setState({experience: experience});
+        this.filtered();
+    }
+    filterEdukation(edukation) {
+        this.setState({edukation: edukation});
+        this.filtered();
+    }
+    filtered() {
+        this.setState({employerCard: this.props.jobCards});
+        if (this.state.employment !== '') {
+        this.setState({employerCard: this.state.employerCard.filter((el) => el.typeOfEmployment === this.state.employment )})};
+        if (this.state.experience !== '') {
+        this.setState({employerCard: this.state.employerCard.filter((el) => el.workExperience === this.state.experience )})};
+        if (this.state.edukation !== '') {
+        this.setState({employerCard: this.state.employerCard.filter((el) => el.education === this.state.edukation )})};
     }
 }

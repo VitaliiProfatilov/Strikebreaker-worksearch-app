@@ -22,14 +22,14 @@ export class VacancyPage extends React.Component {
                                 <Link to="/AddVacancy" className={styles.EditButton} > 
                                     <EditButton/> 
                                 </Link>                                                   
-                            {jobCard.isFavorite ? <div onClick={() => {this.props.deleteFavorite(jobCard.id); this.props.jobCardId(jobCard.id) }}>
+                            {jobCard.isFavorite ? <div onClick={() => this.props.deleteFavorite(jobCard.id)}>
                                     <DeleteFromFavoriteButton/>
-                                </div> : <div onClick={() => {this.props.addFavorite(jobCard.id); this.props.jobCardId(jobCard.id) }}>
+                                </div> : <div onClick={() => this.props.addFavorite(jobCard.id)}>
                                     <SaveToFavoriteButton />
                                 </div>}
                             </div>
                         </div>
-                        <div className={styles.jobCard}>
+                        <div className={styles.сard}>
                             <div className={styles.cardTop}>
                                 <div className={styles.title}> {jobCard.jobTitle} </div>
                                 <div className={styles.logo}> <img src={jobCard.jobLogo} alt=""/> </div>

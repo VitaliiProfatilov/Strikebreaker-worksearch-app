@@ -18,7 +18,7 @@ body {
     }
 }
 
-.сard {
+.card {
     background: #ffffff;
     min-height: 400px;
     width: 70%;
@@ -39,11 +39,11 @@ body {
             margin-top: auto;
         }
         .logo {
-            max-width: 10%;
-            max-height: 10%;
-            margin-top: auto;
-            margin-right: 60px;
-            margin-top: 40px;
+            position: absolute;
+            max-width: 15%;
+            max-height: 15%;
+            margin-left: 45%;
+            margin-top: 5px;
             img {
                 width: 100%;
                 height: 100%;
@@ -53,12 +53,6 @@ body {
     ul {
         li{
             margin-bottom: 20px;
-            .comnyInfo{
-                font-weight: 400;
-                margin-left: 20px;
-                margin-top: 5px;
-                opacity: 0.8;
-            }
             span {
                 margin-bottom: 10px;
                 opacity: 0.6;
@@ -71,5 +65,12 @@ body {
         h2{
             margin-bottom: 10px;
         }
+    }
+    .subtitle {
+        font-size: 17px;
+        font-weight: 400;
+        margin-left: 20px;
+        margin-top: 5px;
+        opacity: 0.8;
     }
 }

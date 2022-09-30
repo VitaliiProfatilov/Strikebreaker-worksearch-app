@@ -19,7 +19,7 @@ export class JobCards extends React.Component {
                     </div> :
                     <div className={styles.jobCard} key={jobCard.id} >
                         <div className={styles.cardTop}>
-                            <Link to='/VacancyPage' className={styles.title} onClick={() => this.props.jobCardId(jobCard.id)} > {jobCard.jobTitle} </Link>
+                            <Link to='/Vacancy' className={styles.title} onClick={() => this.props.jobCardId(jobCard.id)} > {jobCard.jobTitle} </Link>
                             <div className={styles.logo}> <img src={jobCard.jobLogo} alt=""/> </div>
                         </div>
                         <ul>

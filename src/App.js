@@ -1,11 +1,13 @@
 import { EmployerPage } from './components/EmployerPage';
 import { ApplicantPage } from './components/ApplicantPage';
 import { AddVacancy } from './components/AddVacancyPage';
+import { AddResume } from './components/AddResumePage';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import CorporationLogo from './img/CorporationLogo.png';
 import RestaurantLogo from './img/RestaurantLogo.png';
 import { VacancyPage } from './components/VacancyPage';
+import { ResumePage } from './components/ResumePage';
 import { FavoritePage } from './components/FavoritePage';
 import { NotFoundPage } from './components/NotFoundPage';
 
@@ -15,7 +17,7 @@ export class App extends React.Component {
     this.state = {
       resumeCards: [
         {
-          jobPosition: 'Junior frontend',
+          jobPosition: 'Junior frontend developer',
           salary: '200$',
           cityToWork: 'Dnipro, Ukraine.',
           experience: 'Without experience',
@@ -82,41 +84,37 @@ export class App extends React.Component {
         },
       ],
       jobCard: [],
+      resumeCard: [],
       favoriteJob: [],
       favoriteResume: [],
       editCard: [],
-      employerCard: [],
-      employment: undefined,
-      experience: undefined,
-      edukation: undefined,
     }
   this.addJobCard = this.addJobCard.bind(this);
-  this.onPush = this.onPush.bind(this);
+  this.addResumeCard = this.addResumeCard.bind(this);
+  this.onPushJob = this.onPushJob.bind(this);
+  this.onPushResume = this.onPushResume.bind(this);
   this.addFavoriteJob = this.addFavoriteJob.bind(this);
   this.deleteFavoriteJob = this.deleteFavoriteJob.bind(this);
   this.addFavoriteResume = this.addFavoriteResume.bind(this);
   this.deleteFavoriteResume = this.deleteFavoriteResume.bind(this);
   this.hideJobCard = this.hideJobCard.bind(this);
   this.hideResumeCard = this.hideResumeCard.bind(this);
-  this.onEdit = this.onEdit.bind(this);
-  this.edit = this.edit.bind(this);
-  this.filterEmployment = this.filterEmployment.bind(this);
-  this.filterExperience = this.filterExperience.bind(this);
-  this.filterEdukation = this.filterEdukation.bind(this);
-  this.filtered = this.filtered.bind(this);
-  //this.filteredExperience = this.filteredExperience.bind(this);
-  //this.filteredEdukation = this.filteredEdukation.bind(this);
-  //this.filtered = this.filtered.bind(this);
+  this.onEditJob = this.onEditJob.bind(this);
+  this.onEditResume = this.onEditResume.bind(this);
+  this.editJob = this.editJob.bind(this);
+  this.editResume = this.editResume.bind(this);
   }
   render() {
     return (
       <>
         <Routes>
-          <Route path='/' element={<EmployerPage filterEmployment={this.filterEmployment} filterExperience={this.filterExperience} filterEdukation={this.filterEdukation} hideCard={this.hideJobCard} jobCards={this.state.employerCard} jobCardId={this.onPush} addFavorite={this.addFavoriteJob} deleteFavorite={this.deleteFavoriteJob} />} />
-          <Route path='Applicant' element={<ApplicantPage edit={this.edit}  showCard={this.showCard} hideResumeCard={this.hideResumeCard} resumeCards={this.state.resumeCards} resumeCardId={this.onPush} addFavoriteResume={this.addFavoriteResume} deleteFavoriteResume={this.deleteFavoriteResume} />} />
-          <Route path='AddVacancy' element={<AddVacancy onEdit={this.onEdit} onAdd={this.addJobCard} jobCard={this.state.jobCard}/>} />
-          <Route path='VacancyPage' element={<VacancyPage jobCard={this.state.jobCard} deleteFavorite={this.deleteFavorite} addFavorite={this.addFavorite} jobCardId={this.onPush}/>} />
-          <Route path='Favorite' element={<FavoritePage hideCard={this.hideCard} jobCards={this.state.favoriteJob} resumeCards={this.state.favoriteResume} jobCardId={this.onPush} deleteFavoriteJob={this.deleteFavoriteJob} addFavoriteJob={this.addFavoriteJob} deleteFavoriteResume={this.deleteFavoriteResume} addFavoriteResume={this.addFavoriteResume}/>}/>
+          <Route path='/' element={<EmployerPage editResume={this.editResume} hideCard={this.hideJobCard} jobCards={this.state.jobCards} jobCardId={this.onPushJob} addFavorite={this.addFavoriteJob} deleteFavorite={this.deleteFavoriteJob} />} />
+          <Route path='Applicant' element={<ApplicantPage editJob={this.editJob} hideCard={this.hideResumeCard} resumeCards={this.state.resumeCards} resumeCardId={this.onPushResume} addFavoriteResume={this.addFavoriteResume} deleteFavoriteResume={this.deleteFavoriteResume} />} />
+          <Route path='AddVacancy' element={<AddVacancy onEdit={this.onEditJob} onAdd={this.addJobCard} jobCard={this.state.jobCard}/>} />
+          <Route path='AddResume' element={<AddResume onEdit={this.onEditResume} onAdd={this.addResumeCard} resumeCard={this.state.resumeCard}/>} />
+          <Route path='Vacancy' element={<VacancyPage jobCard={this.state.jobCard} deleteFavorite={this.deleteFavoriteJob} addFavorite={this.addFavoriteJob} />} />
+          <Route path='Resume' element={<ResumePage resumeCard={this.state.resumeCard} deleteFavorite={this.deleteFavoriteResume} addFavorite={this.addFavoriteResume} />} />
+          <Route path='Favorite' element={<FavoritePage hideCard={this.hideCard} jobCards={this.state.favoriteJob} resumeCards={this.state.favoriteResume} resumeCardId={this.onPushResume} jobCardId={this.onPushJob} deleteFavoriteJob={this.deleteFavoriteJob} addFavoriteJob={this.addFavoriteJob} deleteFavoriteResume={this.deleteFavoriteResume} addFavoriteResume={this.addFavoriteResume}/>}/>
           <Route path="*" element={<NotFoundPage />}/>
         </Routes>
       </>
@@ -128,15 +126,23 @@ export class App extends React.Component {
     const isHidden = false;
     this.setState({jobCards: [...this.state.jobCards, {isFavorite, isHidden, ...newJobCard}]})
   }
-  onPush(id) {
+  addResumeCard(newResumeCard) {
+    newResumeCard.id = this.state.resumeCards.length + 1;
+    const isFavorite = false;
+    const isHidden = false;
+    this.setState({resumeCards: [...this.state.resumeCards, {isFavorite, isHidden, ...newResumeCard}]})
+  }
+  onPushJob(id) {
     this.setState({jobCard: this.state.jobCards.filter((el) => el.id === id)})
+  }
+  onPushResume(id) {
+    this.setState({resumeCard: this.state.resumeCards.filter((el) => el.id === id)})
   }
   addFavoriteJob(id) {
     const isFavorite = true;
     let isInArray = false;
     let jobCardsIsFavorite = this.state.jobCards;
     jobCardsIsFavorite[id-1].isFavorite = isFavorite;
-    //console.log(this.state.jobCards)
     this.state.favoriteJob.forEach(el=>{
       if(el.id === id) 
         isInArray = true
@@ -149,7 +155,6 @@ export class App extends React.Component {
     let isInArray = false;
     let resumeCardsIsFavorite = this.state.resumeCards;
     resumeCardsIsFavorite[id-1].isFavorite = isFavorite;
-    //console.log(this.state.jobCards)
     this.state.favoriteResume.forEach(el=>{
       if(el.id === id) 
         isInArray = true
@@ -173,44 +178,26 @@ export class App extends React.Component {
     let jobCardsIsHidden = this.state.jobCards;
     jobCardsIsHidden[id-1].isHidden = !jobCardsIsHidden[id-1].isHidden
     this.setState({})
-    console.log(this.state.jobCards)
   }
   hideResumeCard(id) {
     let resumeCardsIsHidden = this.state.resumeCards;
     resumeCardsIsHidden[id-1].isHidden = !resumeCardsIsHidden[id-1].isHidden
     this.setState({})
-    console.log(this.state.jobCards)
   }
-  edit() {
+  editJob() {
     this.setState({jobCard: []})
   }
-  onEdit(editElement) {
+  editResume() {
+    this.setState({resumeCard: []})
+  }
+  onEditJob(editElement) {
     let jobCardsIsEdit = this.state.jobCards;
     jobCardsIsEdit[editElement.id-1] = editElement;
     this.setState({})
   }
-  componentDidMount() {
-    this.setState({employerCard: this.state.jobCards})
-  }
-  filterEmployment(employment) {
-    this.setState({employment: employment});
-    this.filtered();
-  }
-  filterExperience(experience) {
-    this.setState({experience: experience});
-    this.filtered();
-  }
-  filterEdukation(edukation) {
-    this.setState({edukation: edukation});
-    this.filtered();
-  }
-  filtered() {
-    this.setState({employerCard: this.state.jobCards});
-    if (this.state.employment !== undefined) {
-      this.setState({employerCard: this.state.employerCard.filter((el) => el.typeOfEmployment === this.state.employment )})};
-    if (this.state.experience !== undefined) {
-      this.setState({employerCard: this.state.employerCard.filter((el) => el.workExperience === this.state.experience )})};
-    if (this.state.edukation !== undefined) {
-      this.setState({employerCard: this.state.employerCard.filter((el) => el.education === this.state.edukation )})};
+  onEditResume(editElement) {
+    let resumeCardsIsEdit = this.state.resumeCards;
+    resumeCardsIsEdit[editElement.id-1] = editElement;
+    this.setState({})
   }
 }

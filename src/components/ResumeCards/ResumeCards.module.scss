@@ -1,4 +1,4 @@
-.emptyJobCard {
+.emptyCard {
     background: #ffffff;
     max-width: 70%;
     padding: 2px 20px 2px 20px ;
@@ -9,18 +9,18 @@
     &:hover {
         border: 1px solid rgb(151, 150, 150);
     }
-    .emptyJobCardH1 {
+    .emptyCardH1 {
         margin-top: 60px;
         font-weight: bold;
         display: block;
         text-align: center;
     }
-    .emptyJobCardH2 {
+    .emptyCardH2 {
         margin-top: 10px;
         display: block;
         text-align: center;
     }
-    .emptyJobCardButton {
+    .emptyCardButton {
         margin-top: 20px;
         margin-left: auto;
         margin-right: auto;
@@ -28,7 +28,7 @@
     }
 }
 
-.jobCard {
+.card {
     background: #ffffff;
     max-height: 200px;
     max-width: 70%;
@@ -57,7 +57,7 @@
             margin-top: auto;
         }
         .logo {
-            max-width: 70px;
+            max-width: 60px;
             max-height: 20px;
             margin-top: auto;
             margin-right: 40px;
@@ -81,7 +81,7 @@
             max-height: 64px;
         }
     }
-    .jobCardFooter {
+    .cardFooter {
         display: flex;
         margin-left: 65%;
     }

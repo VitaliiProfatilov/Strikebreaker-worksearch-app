@@ -3,6 +3,7 @@ import Logo from "../../img/Logo.PNG";
 import { AiOutlineStar } from 'react-icons/ai';
 import { ApplicantButton } from '../ApplicantButton';
 import { AddVacancyButton } from '../AddVacancyButton';
+import { AddResumeButton } from '../AddResumeButton';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { FaRegAddressCard } from 'react-icons/fa';
@@ -23,15 +24,15 @@ export class Header extends React.Component {
                     </Link>
                     <div className={styles.pageButtons}>
                        {window.location.href === 'http://localhost:3000/' ? <div className={styles.rightButtons}>
-                            <div className={styles.addButton}>
+                            <div className={styles.addButton} onClick={() => this.props.editResume()}>
                                 <div className={styles.span}> <FaRegAddressCard /> </div>
-                                Add resume
+                                <AddResumeButton />
                             </div>
                             <div className={styles.toButton}> 
                                 <ApplicantButton /> 
                             </div>
                         </div> : <div className={styles.rightButtons}>
-                            <div className={styles.addButton} onClick={() => this.props.edit()}>
+                            <div className={styles.addButton} onClick={() => this.props.editJob()}>
                                 <div className={styles.span}> <AiOutlineFileAdd/> </div>
                                 <AddVacancyButton />
                             </div>

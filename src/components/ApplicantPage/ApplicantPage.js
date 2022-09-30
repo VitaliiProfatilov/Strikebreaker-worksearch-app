@@ -17,7 +17,7 @@ export class ApplicantPage extends React.Component {
         return (
             <div>
                 <div>
-                    <Header edit={this.props.edit}/>
+                    <Header editJob={this.props.editJob}/>
                 </div>
                     <div className={styles.topContainer}>
                         <div className={styles.inputContainer}>
@@ -35,7 +35,7 @@ export class ApplicantPage extends React.Component {
                         </div>
                     </div>
                 <div>
-                    <ResumeCards hideCard={this.props.hideCard} resumeCards={this.props.resumeCards} resumeCardId={this.props.onPush} addFavoriteResume={this.props.addFavoriteResume} deleteFavoriteResume={this.props.deleteFavoriteResume} />
+                    <ResumeCards hideCard={this.props.hideCard} resumeCards={this.props.resumeCards} resumeCardId={this.props.resumeCardId} addFavoriteResume={this.props.addFavoriteResume} deleteFavoriteResume={this.props.deleteFavoriteResume} />
                 </div>
             </div>
         )

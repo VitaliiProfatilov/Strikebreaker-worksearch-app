@@ -1,0 +1,10 @@
+.AddResumeButton {
+    font-size: 26px;
+    color: white;
+    &:hover {
+        text-decoration: underline;
+    }
+    &:active {
+        color: rgb(221, 221, 221);
+    }
+}

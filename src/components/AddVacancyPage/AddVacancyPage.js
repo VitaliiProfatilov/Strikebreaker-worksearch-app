@@ -66,12 +66,14 @@ export class AddVacancy extends React.Component {
     this.goHome = this.goHome.bind(this)
     this.employment = this.employment.bind(this)
     this.workExperience = this.workExperience.bind(this)
+    this.education = this.education.bind(this)
+    this.employees = this.employees.bind(this)
     }
     render() {
         return (
             <div className={styles.container}>
                 <LogoRevers/>
-                <div className={styles.vacancyConteiner}>
+                <div className={styles.cardConteiner}>
                     <h2> Vacancy description </h2>
                     <form>
                         <div>
