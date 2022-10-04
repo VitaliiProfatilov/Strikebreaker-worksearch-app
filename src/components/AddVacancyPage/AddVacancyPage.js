@@ -68,6 +68,7 @@ export class AddVacancy extends React.Component {
     this.workExperience = this.workExperience.bind(this)
     this.education = this.education.bind(this)
     this.employees = this.employees.bind(this)
+    this.test = this.test.bind(this)
     }
     render() {
         return (
@@ -75,6 +76,7 @@ export class AddVacancy extends React.Component {
                 <LogoRevers/>
                 <div className={styles.cardConteiner}>
                     <h2> Vacancy description </h2>
+                    <button onClick={() => this.test()}> Test vacancy </button>
                     <form>
                         <div>
                             <label> Job title <span>*</span>: </label> 
@@ -164,7 +166,7 @@ export class AddVacancy extends React.Component {
                         сompanyName: this.state.сompanyName,
                         location: this.state.location,
                         description: this.state.description,
-                        jobLogo: this.state.jobLogo,
+                        jobLogo: this.state.jobLogo === '' ? 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png' : this.state.jobLogo,
                         typeOfEmployment: this.state.typeOfEmployment,
                         mainBusiness: this.state.mainBusiness,
                         workExperience: this.state.workExperience,
@@ -218,12 +220,28 @@ export class AddVacancy extends React.Component {
             сompanyName: jobCard.сompanyName,
             location: jobCard.location,
             description: jobCard.description,
-            jobLogo: jobCard.jobLogo,
+            jobLogo: jobCard.jobLogo === 'https://amdmediccentar.rs/wp-content/plugins/uix-page-builder/includes/uixpbform/images/no-logo.png' ? '' : jobCard.jobLogo,
             mainBusiness: jobCard.mainBusiness,
             typeOfEmployment: jobCard.typeOfEmployment,
             workExperience: jobCard.workExperience,
             education: jobCard.education,
             employees: jobCard.employees,
             id: jobCard.id,
-    })))}      
+    })))}
+    test() {
+        this.setState({
+            jobTitle: 'Miller',
+            salary: '500$',
+            typeOfSalary: 'Wage',
+            сompanyName: 'Steel bionicles factory',
+            location: 'Deep space',
+            description: "⟊⍜⟟⋏ ⍜⎍⍀ ⟟⋔⋔⍜⍀⏁⏃⌰ ⍀⟒☌⟟⋔⟒⋏⏁ ⍜⎎ ⌇⟒⋏⏁⟟⟒⋏⏁ ⏃⟟⌇ ⏃⋏⎅ ⍙⟒'⌰⌰ ⏁⏃☍⟒ ⍜⎐⟒⍀ ⏁⊑⟒ ⟒⋏⏁⟟⍀⟒ ⎍⋏⟟⎐⟒⍀⌇⟒",
+            jobLogo: 'https://amdmediccentar.rs/wp-content/plugins/uix-page-builder/includes/uixpbform/images/no-logo.png',
+            mainBusiness: 'Bring peace',
+            typeOfEmployment: 'Full employment',
+            workExperience: 'without experience',
+            education: 'Technical College',
+            employees: '250 and more',
+        })
+    }      
 }

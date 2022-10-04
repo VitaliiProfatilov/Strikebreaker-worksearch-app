@@ -22,11 +22,11 @@ export class ResumeCards extends React.Component {
                             <Link to='/Resume' className={styles.title} onClick={() => this.props.resumeCardId(resumeCard.id)} > {resumeCard.jobPosition} </Link>
                             <div className={styles.logo}> <img src={resumeCard.photo} alt=""/> </div>
                         </div>
-                        <div> 
-                            {resumeCard.salary}  
+                        <div className={styles.cardText}> 
+                            Salary: {resumeCard.salary}  
                         </div>
-                        <div> 
-                            {resumeCard.cityToWork}  
+                        <div className={styles.cardText}> 
+                            location: {resumeCard.cityToWork}  
                         </div>
                         <div className={styles.cardFooter}>
                             <div className={styles.hideCard} onClick={() => this.props.hideCard(resumeCard.id)}>

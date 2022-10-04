@@ -18,7 +18,7 @@ export class App extends React.Component {
       resumeCards: [
         {
           jobPosition: 'Junior frontend developer',
-          salary: '200$',
+          salary: '300$',
           cityToWork: 'Dnipro, Ukraine.',
           experience: 'Without experience',
           education: 'Master: electrical engineering, electromechanics.',
@@ -35,7 +35,7 @@ export class App extends React.Component {
           jobPosition: 'Street cleaner',
           salary: '250$',
           cityToWork: 'Kyiv, Ukraine.',
-          experience: 'Experience 2 years',
+          experience: '2 years experience',
           education: 'Secondary education.',
           photo: 'https://www.meme-arsenal.com/memes/0699b7f404dfa7e0a1f6e71c08332969.jpg',
           description: 'Duis lobortis vehicula congue. Nunc scelerisque varius dolor ut gravida.',
