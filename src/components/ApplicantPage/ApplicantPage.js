@@ -82,7 +82,7 @@ export class ApplicantPage extends React.Component {
         if (this.state.photo === '') {dataFilterTwo = dataFilterOne} else {
             dataFilterTwo = dataFilterOne.filter((el) => el.photo !== noPhoto )};
         if (this.state.search === '') {dataFilterThree = dataFilterTwo} else {
-            dataFilterThree = dataFilterTwo.filter((el) => el.jobPosition.toLowerCase() === this.state.search.toLowerCase())};
+            dataFilterThree = dataFilterTwo.filter((el) => el.jobPosition.toLowerCase().includes(this.state.search.toLowerCase()))};
         this.setState({resumeCards: dataFilterThree});
     }
     reset() {

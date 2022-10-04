@@ -101,7 +101,7 @@ export class EmployerPage extends React.Component {
         if (this.state.education === '') {dataFilterThree = dataFilterTwo} else {
             dataFilterThree = dataFilterTwo.filter((el) => el.education === this.state.education )};
         if (this.state.search === '') {dataFilterFour = dataFilterThree} else {
-            dataFilterFour = dataFilterThree.filter((el) => el.jobTitle.toLowerCase() === this.state.search.toLowerCase())};
+            dataFilterFour = dataFilterThree.filter((el) => el.jobTitle.toLowerCase().includes(this.state.search.toLowerCase()))};
         this.setState({jobCards: dataFilterFour});
     }
     reset() {
