@@ -9,7 +9,7 @@ export function NotFoundPage() {
             <div className={styles.notFound}>
                 404 Not found 
             </div>
-            <Link to='/Strikebreaker-worksearch-app' className={styles.link}>
+            <Link to='/Strikebreaker-worksearch-app/' className={styles.link}>
                 Go home
             </Link>
         </div>

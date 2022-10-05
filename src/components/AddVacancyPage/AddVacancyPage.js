@@ -196,7 +196,7 @@ export class AddVacancy extends React.Component {
         else if(this.state.description === '') {this.setState({data: false}); this.setState({link: '/AddVacancy'})} 
         else {
             this.setState({data: true});
-            this.setState({link: '/'});
+            this.setState({link: '/Strikebreaker-worksearch-app/'});
         }
     }
     employment(id) {

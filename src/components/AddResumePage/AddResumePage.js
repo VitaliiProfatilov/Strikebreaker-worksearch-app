@@ -146,7 +146,7 @@ export class AddResume extends React.Component {
         else if(this.state.age === '') {this.setState({data: false}); this.setState({link: '/AddResume'})}
         else {
             this.setState({data: true});
-            this.setState({link: '/applicant'});
+            this.setState({link: '/Applicant'});
         }
     }
     componentDidMount() {
