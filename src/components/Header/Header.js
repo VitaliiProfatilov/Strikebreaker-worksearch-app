@@ -23,7 +23,7 @@ export class Header extends React.Component {
                         Favorit
                     </Link>
                     <div className={styles.pageButtons}>
-                       {window.location.href === 'https://vitaliiprofatilov.github.io' ? <div className={styles.rightButtons}>
+                       {window.location.href === 'https://vitaliiprofatilov.github.io/' ? <div className={styles.rightButtons}>
                             <div className={styles.addButton} onClick={() => this.props.editResume()}>
                                 <div className={styles.span}> <FaRegAddressCard /> </div>
                                 <AddResumeButton />
