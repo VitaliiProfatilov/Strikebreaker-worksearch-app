@@ -108,7 +108,7 @@ export class App extends React.Component {
     return (
       <>
         <Routes>
-          <Route path='/' element={<EmployerPage editResume={this.editResume} hideCard={this.hideJobCard} jobCards={this.state.jobCards} jobCardId={this.onPushJob} addFavorite={this.addFavoriteJob} deleteFavorite={this.deleteFavoriteJob} />} />
+          <Route path='Strikebreaker-worksearch-app' element={<EmployerPage editResume={this.editResume} hideCard={this.hideJobCard} jobCards={this.state.jobCards} jobCardId={this.onPushJob} addFavorite={this.addFavoriteJob} deleteFavorite={this.deleteFavoriteJob} />} />
           <Route path='Applicant' element={<ApplicantPage editJob={this.editJob} hideCard={this.hideResumeCard} resumeCards={this.state.resumeCards} resumeCardId={this.onPushResume} addFavoriteResume={this.addFavoriteResume} deleteFavoriteResume={this.deleteFavoriteResume} />} />
           <Route path='AddVacancy' element={<AddVacancy onEdit={this.onEditJob} onAdd={this.addJobCard} jobCard={this.state.jobCard}/>} />
           <Route path='AddResume' element={<AddResume onEdit={this.onEditResume} onAdd={this.addResumeCard} resumeCard={this.state.resumeCard}/>} />
