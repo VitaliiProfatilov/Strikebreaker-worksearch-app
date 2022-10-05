@@ -13,7 +13,7 @@ export class FavoritePage extends React.Component {
                 {this.props.jobCards.length > 0 ? 
                     <div className={styles.cardsContainer}>
                         <span className={styles.vacanciesSpan}> Favorite vacancies: </span>
-                        <JobCards hideCard={this.props.hideCard} jobCards={this.props.jobCards} jobCardId={this.props.jobCardId} deleteFavorite={this.props.deleteFavoriteJob} isFavorite={this.props.isFavorite} addFavorite={this.props.addFavoriteJob}/>
+                        <JobCards hideCard={this.props.hideJobCard} jobCards={this.props.jobCards} jobCardId={this.props.jobCardId} deleteFavorite={this.props.deleteFavoriteJob} isFavorite={this.props.isFavorite} addFavorite={this.props.addFavoriteJob}/>
                     </div> 
                     : 
                     <div className={styles.cardsContainer}> 
@@ -23,7 +23,7 @@ export class FavoritePage extends React.Component {
                 {this.props.resumeCards.length > 0 ? 
                     <div className={styles.cardsContainer}>
                         <span className={styles.resumeSpan}> Favorite resume: </span>
-                        <ResumeCards hideCard={this.props.hideCard} resumeCards={this.props.resumeCards} resumeCardId={this.props.resumeCardId} deleteFavoriteResume={this.props.deleteFavoriteResume} isFavorite={this.props.isFavorite} addFavoriteResume={this.props.addFavoriteResume}/>
+                        <ResumeCards hideCard={this.props.hideResumeCard} resumeCards={this.props.resumeCards} resumeCardId={this.props.resumeCardId} deleteFavoriteResume={this.props.deleteFavoriteResume} isFavorite={this.props.isFavorite} addFavoriteResume={this.props.addFavoriteResume}/>
                     </div> 
                     : 
                     <div className={styles.cardsContainer}> 

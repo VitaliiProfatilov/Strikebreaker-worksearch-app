@@ -114,7 +114,7 @@ export class App extends React.Component {
           <Route path='AddResume' element={<AddResume onEdit={this.onEditResume} onAdd={this.addResumeCard} resumeCard={this.state.resumeCard}/>} />
           <Route path='Vacancy' element={<VacancyPage jobCard={this.state.jobCard} deleteFavorite={this.deleteFavoriteJob} addFavorite={this.addFavoriteJob} />} />
           <Route path='Resume' element={<ResumePage resumeCard={this.state.resumeCard} deleteFavorite={this.deleteFavoriteResume} addFavorite={this.addFavoriteResume} />} />
-          <Route path='Favorite' element={<FavoritePage hideCard={this.hideCard} jobCards={this.state.favoriteJob} resumeCards={this.state.favoriteResume} resumeCardId={this.onPushResume} jobCardId={this.onPushJob} deleteFavoriteJob={this.deleteFavoriteJob} addFavoriteJob={this.addFavoriteJob} deleteFavoriteResume={this.deleteFavoriteResume} addFavoriteResume={this.addFavoriteResume}/>}/>
+          <Route path='Favorite' element={<FavoritePage hideResumeCard={this.hideResumeCard} hideJobCard={this.hideJobCard} jobCards={this.state.favoriteJob} resumeCards={this.state.favoriteResume} resumeCardId={this.onPushResume} jobCardId={this.onPushJob} deleteFavoriteJob={this.deleteFavoriteJob} addFavoriteJob={this.addFavoriteJob} deleteFavoriteResume={this.deleteFavoriteResume} addFavoriteResume={this.addFavoriteResume}/>}/>
           <Route path="*" element={<NotFoundPage />}/>
         </Routes>
       </>

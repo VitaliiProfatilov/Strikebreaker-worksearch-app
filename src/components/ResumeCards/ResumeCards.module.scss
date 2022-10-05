@@ -1,16 +1,16 @@
 .emptyCard {
     background: #ffffff;
-    max-width: 70%;
-    padding: 2px 20px 2px 20px ;
+    max-width: 50%;
+    padding: 0px 20px 0px 20px ;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid rgb(209, 207, 207);
-    height: 236px;
+    height: 180px;
     &:hover {
         border: 1px solid rgb(151, 150, 150);
     }
     .emptyCardH1 {
-        margin-top: 60px;
+        margin-top: 40px;
         font-weight: bold;
         display: block;
         text-align: center;
@@ -30,7 +30,7 @@
 
 .card {
     background: #ffffff;
-    max-height: 200px;
+    max-height: 180px;
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
