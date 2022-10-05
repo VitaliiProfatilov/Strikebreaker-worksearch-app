@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Strikebreaker-worksearch-app/static/css/main.ab6a01a8.css",
-    "main.js": "/Strikebreaker-worksearch-app/static/js/main.d919d235.js",
+    "main.js": "/Strikebreaker-worksearch-app/static/js/main.c7fca6fd.js",
     "static/media/ReversLogo.png": "/Strikebreaker-worksearch-app/static/media/ReversLogo.6787a897a9f663bf09aa.png",
     "static/media/Logo.PNG": "/Strikebreaker-worksearch-app/static/media/Logo.24e2407dd4008406335e.PNG",
     "static/media/RestaurantLogo.png": "/Strikebreaker-worksearch-app/static/media/RestaurantLogo.91b3c50be3ed1f7f3f01.png",
     "static/media/CorporationLogo.png": "/Strikebreaker-worksearch-app/static/media/CorporationLogo.8f7f40d247ed3ccb87be.png",
     "index.html": "/Strikebreaker-worksearch-app/index.html",
     "main.ab6a01a8.css.map": "/Strikebreaker-worksearch-app/static/css/main.ab6a01a8.css.map",
-    "main.d919d235.js.map": "/Strikebreaker-worksearch-app/static/js/main.d919d235.js.map"
+    "main.c7fca6fd.js.map": "/Strikebreaker-worksearch-app/static/js/main.c7fca6fd.js.map"
   },
   "entrypoints": [
     "static/css/main.ab6a01a8.css",
-    "static/js/main.d919d235.js"
+    "static/js/main.c7fca6fd.js"
   ]
 }
